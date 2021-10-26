@@ -4,13 +4,10 @@ game_mode = input("Welcome to this little guessing Simulation.\n"
                   "Type 'me' -> mode you guess the number chosen by the computer\n"
                   "Type 'pc' -> mode where the computer guesses your number.\n")
 try:
-    max_bound = int(input("Please type in a number to set a max Value for the guessing game:"))
+    max_bound = int(input("Please type in a number to set a max Value for the guessing game:\n"))
 except:
     print("Not a number format. Running on default Value 10.")
     max_bound = 10
-
-
-print(max_bound)
 
 
 def guess(x):
@@ -50,8 +47,8 @@ def computer_guess(x):
             elif feedback == 'l':
                 low = pc_guess + 1
             elif feedback != 'l' and feedback != 'h' and feedback != 'c':
-                while feedback != 'l' or feedback != 'h' or feedback != 'c':
-                    feedback = input(f"Sorry, {feedback} can't be processed. "
+                while feedback != 'l' and feedback != 'h' and feedback != 'c':
+                    feedback = input(f"Sorry, '{feedback}' can't be processed. "
                                      "Please type 'H' if too high, 'L' if too low or 'c' if guess matches your number!")
         else:
             pc_guess = low
