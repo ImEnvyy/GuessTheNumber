@@ -1,22 +1,26 @@
-# This is a sample Python script.
-
-# Press Umschalt+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
 import random
 
 game_mode = input("Welcome to this little guessing Simulation.\n"
                   "Type 'me' -> mode you guess the number chosen by the computer\n"
                   "Type 'pc' -> mode where the computer guesses your number.\n")
-max_bound = int(input("Please set a max Value for the guessing game:"))
+try:
+    max_bound = int(input("Please type in a number to set a max Value for the guessing game:"))
+except:
+    print("Not a number format. Running on default Value 10.")
+    max_bound = 10
+
+print(max_bound)
 
 
 def guess(x):
     random_number = random.randint(0, x)
     my_guess = -1
+    min_value = 0
+    max_value = x
 
     while my_guess != random_number:
-        my_guess = int(input(f"Guess a number between 0 and {x} (including 0 and {x}): "))
+        my_guess = int(
+            input(f"Guess a number between {min_value} and {max_value} (including {min_value} and {max_value}): "))
         if my_guess < random_number:
             print("Sorry, guess again. Too low.")
         elif my_guess > random_number:
