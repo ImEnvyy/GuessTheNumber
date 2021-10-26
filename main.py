@@ -6,9 +6,9 @@
 import random
 
 game_mode = input("Welcome to this little guessing Simulation.\n"
-                  "Type 'me' for mode where you guess the number, the computer has choosen.\n"
-                  "Type 'pc' for mode where the computer guesses your number.\n")
-max_bound = input("Please set a max Value for the guessing game:")
+                  "Type 'me' -> mode you guess the number chosen by the computer\n"
+                  "Type 'pc' -> mode where the computer guesses your number.\n")
+max_bound = int(input("Please set a max Value for the guessing game:"))
 
 
 def guess(x):
@@ -35,12 +35,12 @@ def computer_guess(x):
         counter += 1
         if low != high:
             pc_guess = random.randint(low, high)
-            feedback = input(f"Is {pc_guess} too high (H), too low (L), or correct (C)??").lower()
+            feedback = input(f"Is {pc_guess} too high (H), too low (L) or correct (C)??").lower()
             if feedback == 'h':
                 high = pc_guess - 1
             elif feedback == 'l':
                 low = pc_guess + 1
-            elif feedback != 'l' or feedback != 'h' or feedback != 'c':
+            elif feedback != 'l' and feedback != 'h' and feedback != 'c':
                 while feedback != 'l' or feedback != 'h' or feedback != 'c':
                     feedback = input(f"Sorry, {feedback} can't be processed. "
                                      "Please type 'H' if too high, 'L' if too low or 'c' if guess matches your number!")
