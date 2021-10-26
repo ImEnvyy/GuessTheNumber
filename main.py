@@ -9,6 +9,7 @@ except:
     print("Not a number format. Running on default Value 10.")
     max_bound = 10
 
+
 print(max_bound)
 
 
@@ -22,8 +23,10 @@ def guess(x):
         my_guess = int(
             input(f"Guess a number between {min_value} and {max_value} (including {min_value} and {max_value}): "))
         if my_guess < random_number:
+            min_value = my_guess + 1
             print("Sorry, guess again. Too low.")
         elif my_guess > random_number:
+            max_value = my_guess - 1
             print("Sorry, guess again. Too high.")
 
     print(f"Nice Done! You guessed the number {random_number} correctly!!")
@@ -55,7 +58,7 @@ def computer_guess(x):
     if counter == 1:
         print(f"Ohh okay wow..I became very lucky guessing the number {pc_guess} correctly first try.")
     else:
-        print(f"Well after trying {counter} times I finally guessed your number ({pc_guess}) finally correct.")
+        print(f"Well after trying {counter} times I finally guessed your number ({pc_guess}) correct.")
 
 
 if game_mode == "pc":
