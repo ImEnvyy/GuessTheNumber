@@ -23,10 +23,12 @@ def guess(x):
         my_guess = int(
             input(f"Guess a number between {min_value} and {max_value} (including {min_value} and {max_value}): "))
         if my_guess < random_number:
-            min_value = my_guess + 1
+            if my_guess + 1 > min_value:
+                min_value = my_guess + 1
             print("Sorry, guess again. Too low.")
         elif my_guess > random_number:
-            max_value = my_guess - 1
+            if my_guess - 1 < max_value:
+                max_value = my_guess - 1
             print("Sorry, guess again. Too high.")
 
     print(f"Nice Done! You guessed the number {random_number} correctly!!")
